@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./fontawesome-free-5.15.3-web/css/all.css">
+    <link rel="stylesheet" href="slick-1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="./slick-1.8.1/slick/slick-theme.css">
+    <link rel="stylesheet" href="./bootstrap-4.6.0-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./index.css">
+    <title>Nogizaka46-4th album</title>
+</head>
+
+<body>
+    <!-- 頁面載入中 -->
+    <div class="loading">
+        <!-- 旋轉的gif -->
+        <div class="gif">
+            <img src="./images/loader.gif" alt="">
+        </div>
+    </div>
+
+    <!-- 語言選擇框 -->
+        <div class="lang-selector">
+            <div class="pic"><img src="./images/langue.png" alt=""></div>
+            <ul>
+                <li>
+                    <!-- div是小圓點 -->
+                    <div></div>
+                    <span>日本語</span>
+                </li>
+                <li>
+                    <div></div>
+                    <span>English</span>
+                </li>
+                <li>
+                    <div></div>
+                    <span>简体中文</span>
+                </li>
+                <li>
+                    <div></div>
+                    <span>繁體中文</span>
+                </li>
+                <li>
+                    <div></div>
+                    <span>ภาษาไทย</span>
+                </li>
+                <li>
+                    <div></div>
+                    <span>한국어</span>
+                </li>
+                <li>
+                    <div></div>
+                    <span>Bahasa Melayu</span>
+                </li>
+                <li>
+                    <div></div>
+                    <span>Bahasa Indonesia</span>
+                </li>
+            </ul>
+        </div>
+
+    <!-- 頭部 -->
+    <!-- 桌機先設為絕對定位(不佔位置，然後用translateY推出去 -->
+    <header>
+        <div class="logo">
+            <img src="./images/logo.png" alt="">
+        </div>
+        <div class="logo-title">
+            <a href="index.html"><img src="./images/logo_title.png" alt=""></a>
+        </div>
+        <div></div>
+    </header>
+
+
+    <!-- 漢堡選單 -->
+    <!-- 用三個div做線 -->
+    <!-- 漢堡選單不再header裡面(桌機在顯示hum-list會有點bug)，但是位置和顯示時機都設定的和header一樣 -->
+    <div class="hum">
+        <div class="top-line"></div>
+        <div class="center-line"></div>
+        <div class="bottom-line"></div>
+    </div>
+    <!-- 漢堡選單條 -->
+    <div class="hum-list">
+        <p>
+            <a href="#">
+                HOME
+                <span>
+                    ホーム
+                </span>
+            </a>
+        </p>
+        <p>
+            <a href="#">
+                PRODUCTS
+                <span>
+                    商品詳細
+                </span>
+            </a>
+        </p>
+        <p>
+            <a href="#">
+                GALLERY
+                <span>
+                    ギャラリー
+                </span>
+            </a>
+        </p>
+        <p>
+            <a href="#">
+                MOVIE
+                <span>
+                    動画
+                </span>
+            </a>
+        </p>
+        <p>
+            <a href="#">
+                EVENT
+                <span>
+                    握手会情報
+                </span>
+            </a>
+        </p>
+        <p>
+            <a href="#">
+                SPECIAL
+                <span>
+                    スペシャルイベント
+                </span>
+            </a>
+        </p>
+    </div>
+
+
+    <!-- 橫幅 -->
+    <!-- 桌機用flex水平對齊 -->
+    <div class="container-fluid">
+        <!-- 大圖 -->
+        <!-- 黑色遮光罩用::after製作，用jq調用translate移走 -->
+        <div class="banner">
+            <div class="pic">
+                <img src="./images/mainimg.jpg" alt="">
+            </div>
+            <!-- 大logo -->
+            <!-- 用fadeIn淡入 -->
+            <div class="text-pic">
+                <div class="content">
+                    <div class="logo"><img src="./images/logo.png" alt=""></div>
+                    <div class="logo-title"><img src="./images/logo_title.png" alt=""></div>
+                    <p class="date">2019年4月17日(水)リリース</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 天使圖 -->
+    <!-- 絕對定位 -->
+    <!-- jq調用translate移入 -->
+    <div class="angel d-none d-lg-block"></div>
+
+    <!-- navbar -->
+    <!-- 斜線用::after製作 -->
+    <!-- 旋轉用rotateX(360deg) -->
+    <div class="navbar-wrap d-none d-lg-block">
+        <div class="container">
+            <div class="navbar">
+                <p>
+                    <a href="#">
+                        HOME
+                        <span>
+                            ホーム
+                        </span>
+                    </a>
+                </p>
+                <p>
+                    <a href="#">
+                        PRODUCTS
+                        <span>
+                            商品詳細
+                        </span>
+                    </a>
+                </p>
+                <p>
+                    <a href="#">
+                        GALLERY
+                        <span>
+                            ギャラリー
+                        </span>
+                    </a>
+                </p>
+                <p>
+                    <a href="#">
+                        MOVIE
+                        <span>
+                            動画
+                        </span>
+                    </a>
+                </p>
+                <p>
+                    <a href="#">
+                        EVENT
+                        <span>
+                            握手会情報
+                        </span>
+                    </a>
+                </p>
+                <p>
+                    <a href="#">
+                        SPECIAL
+                        <span>
+                            スペシャルイベント
+                        </span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 中間文字 -->
+    <!-- 分段不同分為手機和桌機 -->
+    <div class="center-text-wrap">
+        <div class="container">
+            <!-- 手機 -->
+            <div class="center-text d-block d-lg-none">
+                <h3>
+                    3rdアルバム
+                    <br>
+                    「生まれてから初めて見た夢」より約2年。
+                    <br>
+                    デビュー8年目に突入した、
+                    <br>
+                    乃木坂46待望の通算4枚目となる
+                    <br>
+                    オリジナルアルバムが完成！
+                </h3>
+            </div>
+            <!-- 桌機 -->
+            <div class="center-text d-none d-lg-block">
+                <h3>
+                    3rdアルバム「生まれてから初めて見た夢」より約2年。
+                    <br>
+                    デビュー8年目に突入した、乃木坂46待望の通算4枚目となる
+                    <br>
+                    オリジナルアルバムが完成！
+                </h3>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 輪播 -->
+    <!-- 手機 -->
+    <!-- 用object-fit:cover防止圖片變形 -->
+    <!-- 用[aria-hidden="true"]讓位顯示的圖片刷淡 -->
+    <div class="slick d-block d-lg-none">
+        <div class="item">
+            <div class="pic">
+                <img src="./images/SRCL11140.jpg" alt="">
+            </div>
+            <div class="text">
+                <p>初回生産限定盤</p>
+                <p>（CD+Blu-ray）</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="./images/SRCL11143.jpg" alt="">
+            </div>
+            <div class="text">
+                <p>初回仕様限定盤 TYPE-A</p>
+                <p>（CD+Blu-ray）</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="./images/SRCL11145.jpg" alt="">
+            </div>
+            <div class="text">
+                <p>初回仕様限定盤 TYPE-B</p>
+                <p>（CD+Blu-ray）</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="./images/SRCL11147.jpg" alt="">
+            </div>
+            <div class="text">
+                <p>通常盤</p>
+                <p>（CD Only）</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 桌機 -->
+    <!-- 相簿圖 -->
+    <!-- 用object-fit:cover防止圖片變形 -->
+    <div class="album-wrap">
+        <div class="album">
+            <div class="item-group">
+                <!-- jq讓opacity從0到1顯示出來 -->
+                <!-- jq hover讓滑鼠指到的部分刷淡.7 -->
+                <div class="item">
+                    <a href="#">
+                        <div class="pic">
+                            <img src="./images/SRCL11140.jpg" alt="">
+                        </div>
+                        <div class="text">
+                            <p>初回生産限定盤</p>
+                            <p>（CD+Blu-ray）</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <div class="pic">
+                            <img src="./images/SRCL11143.jpg" alt="">
+                        </div>
+                        <div class="text">
+                            <p>初回仕様限定盤 TYPE-A</p>
+                            <p>（CD+Blu-ray）</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <div class="pic">
+                            <img src="./images/SRCL11145.jpg" alt="">
+                        </div>
+                        <div class="text">
+                            <p>初回仕様限定盤 TYPE-B</p>
+                            <p>（CD+Blu-ray）</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <div class="pic">
+                            <img src="./images/SRCL11147.jpg" alt="">
+                        </div>
+                        <div class="text">
+                            <p>通常盤</p>
+                            <p>（CD Only）</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- 豪華封入特典 -->
+    <!-- translate移入 -->
+    <div class="privilege-wrap">
+        <div class="privilege">
+            <h3 class="title">
+                豪華封入特典
+            </h3>
+
+            <div class="item-group">
+                <div class="photo">
+                    <h4>
+                        アルバム初特典
+                        <br>
+                        「4thアルバム限定生写真」
+                    </h4>
+                    <p>
+                        2018年大みそかに出演した「第69回 NHK紅白歌合戦」で着用の歌唱衣装！
+                        <br />
+                        こちらの生写真は4thアルバムの封入特典のみとなる超プレミア生写真！！
+                        <br>
+                        （メンバー47名×3種＝全141種のうち1種がランダム封入）
+                    </p>
+                    <p>※初回生産限定盤・初回仕様限定盤Type-A～Bの3タイプが対象となります。</p>
+                </div>
+
+                <div class="real-date">
+                    <h4>
+                        アルバム発売記念
+                        <br>
+                        「スペシャルイベント応募券」
+                    </h4>
+                    <p>
+                        今回も"ファン感謝祭"スペシャルイベントを実施！
+                        <br />
+                        楽しいイベントをご用意させて頂きました！
+                        <br>
+                        <a href="#">応募詳細はこちら</a>
+                    </p>
+                    <p>※初回生産限定盤・初回仕様限定盤Type-A～Bの3タイプが対象となります。</p>
+                </div>
+
+                <div class="exchange-coupon">
+                    <h4>
+                        アルバム初特典
+                        <br>
+                        「特製ポスター交換券」
+                    </h4>
+                    <p>
+                        4thアルバム「今が思い出になるまで」発売記念 個別握手会に「特製ポスター交換券」をご持参頂くと、会場でクジ引きを行なってご参加頂けます。
+                        <br />
+                        出た数字の枚数分だけ特製ソロポスターをランダムに差し上げます！！
+                        <br>
+                        （こちらは18thシングル「逃げ水」～22ndシングル「帰り道は遠回りしたくなる」までの特製ソロポスターが対象となります。）
+                    </p>
+                    <p>※初回生産限定盤のみが対象となります。</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- GALLERY -->
+    <!-- 用偽元素做框和裡面的背景 -->
+    <!-- overflow:hidden 隱藏放大時的部分 -->
+    <div class="gallery-wrap">
+        <div class="container">
+            <div class="gallery">
+                <h3><a href="">GALLERY</a></h3>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="movie-wrap">
+        <div class="container">
+            <div class="movie">
+                <!-- 影片封面圖 -->
+                <!-- .video::before 做邊框 -->
+                <div class="video">
+                    <!-- 播放的圓形 -->
+                    <div class="play">
+                        <!-- 三角形 -->
+                        <div class="triangle"></div>
+                    </div>
+                </div>
+                <div class="text">
+                    『今が思い出になるまで』特典映像予告編
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- link-banner -->
+    <div class="container-fluid">
+        <div class="link-banner">
+
+            <!-- item的兩個偽元素製作背景色 (黑色和對應的顏色) -->
+            <!-- 一個背景色w0，觸碰時w100% -->
+            <div class="item four">
+                <div class="content">
+                    <p>
+                        乃木坂46 4thアルバム
+                        <br>
+                        「今が思い出になるまで」発売記念
+                    </p>
+                    <!-- 手機 -->
+                    <h4 class="d-blokc d-lg-none">
+                        4期生
+                        <br>
+                        "ミニトーク＆ミニ握手会"
+                    </h4>
+                    <!-- 桌機 -->
+                    <h4 class="d-none d-lg-block">
+                        4期生"ミニトーク＆ミニ握手会"
+                    </h4>
+                    <div class="detailed">
+                        <!-- 用偽元素做按鈕的白色背景 -->
+                        <a href="#">
+                            詳しくはこちら
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item handshake">
+                <div class="content">
+                    <p>
+                        乃木坂46 4thアルバム
+                        <br>
+                        「今が思い出になるまで」発売記念
+                    </p>
+                    <h4>
+                        個別握手会
+                    </h4>
+                    <div class="detailed">
+                        <a href="#">
+                            詳しくはこちら
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="item thanks">
+                <div class="content">
+                    <p>
+                        乃木坂46 4thアルバム
+                        <br>
+                        「今が思い出になるまで」発売記念
+                    </p>
+                    <!-- 手機 -->
+                    <h4 class="d-block d-lg-none">
+                        "ファン感謝祭"
+                        <br>
+                        スペシャルイベント
+                    </h4>
+                    <!-- 桌機 -->
+                    <h4 class="d-none d-lg-block">
+                        "ファン感謝祭"スペシャルイベント
+                    </h4>
+                    <div class="detailed">
+                        <a href="#">
+                            詳しくはこちら
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <div class="sns">
+            <div class="twitter">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="fb">
+                <a href="#"><i class="fab fa-facebook-square"></i></a>
+            </div>
+            <div class="line">
+                <a href="#"><i class="fab fa-line"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright 乃木坂46LLC ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+    <!-- youtube的div -->
+    <!-- 平時none，點擊movie時顯示 -->
+    <div class="remodal">
+        <div class="yt">
+            <iframe src="https://www.youtube.com/embed/hccLVfv8yjc" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+        <!-- 點擊close按鈕隱藏這個div，並且將嵌入的yt的src改為空 -->
+        <div class="close-btn">
+            CLOSE
+        </div>
+    </div>
+
+
+
+    <script src="./jquery-3.6.0/jquery-3.6.0.js"></script>
+    <script src="./slick-1.8.1/slick/slick.js"></script>
+    <script src="./bootstrap-4.6.0-dist/js/bootstrap.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

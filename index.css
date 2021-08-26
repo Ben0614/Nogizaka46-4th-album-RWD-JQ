@@ -1,0 +1,1150 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Serif JP', serif;
+}
+
+/* 隱藏橫滾動條 一開始天使在外面 */
+body{
+    overflow-x: hidden;
+}
+
+/* 頁面載入中 */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #645490 url(./images/bg_shadow.png) center center;
+    z-index: 9999;
+}
+
+/* 旋轉小圈 */
+.loading .gif {
+    width: 5%;
+}
+
+.loading .gif img {
+    width: 100%;
+    height: 100%;
+}
+
+/* 大背景 */
+/* 其他元素沒有背景或是背景色比較淡時才會顯現 */
+body::before {
+    content: '';
+    background: url(./images/bg.jpg) no-repeat center center;
+    background-size: cover;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+ul,
+ol,
+p {
+    margin-bottom: 0;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* 語言選擇框 */
+.lang-selector {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    width: 140px;
+    height: 53px;
+    border-radius: 7px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.lang-selector>.pic {
+    cursor: pointer;
+}
+
+.lang-selector img {
+    width: 100%;
+    height: 100%;
+}
+
+/* 用fixed，位置設定除了bottom略高外，其餘與父層一樣 */
+.lang-selector ul {
+    display: none;
+    background-color: #812990;
+    position: fixed;
+    right: 15px;
+    bottom: 30px;
+    width: 140px;
+    height: content;
+    list-style: none;
+}
+
+.lang-selector ul li {
+    position: relative;
+    padding: 10px 0 10px 20px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* 文字 */
+.lang-selector ul li span {
+    padding-left: 5px;
+}
+
+/* 小圓點  absolute定位*/
+.lang-selector ul li div {
+    display: none;
+    position: absolute;
+    top: 18px;
+    left: 10px;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+/* 觸碰到當前li時改變背景色 */
+.lang-selector ul li:hover {
+    background: rgba(0, 0, 0, .5);
+}
+
+/* 頭部 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #1f172d;
+    padding: 10px 15px;
+    z-index: 10;
+}
+
+header .logo {
+    width: 50px;
+    height: 35px;
+}
+
+header .logo-title {
+    width: 200px;
+}
+
+/* 漢堡選單 */
+.hum {
+    position: fixed;
+    right: 10px;
+    top: 15px;
+    width: 30px;
+    height: 30px;
+    z-index: 199;
+    cursor: pointer;
+}
+
+/* 三條線兼具為25% */
+/* 頂線 */
+.hum .top-line {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+}
+
+/* 中線 */
+.hum .center-line {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+}
+
+/* 底線 */
+.hum .bottom-line {
+    position: absolute;
+    top: 65%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+}
+
+/* 漢堡選單條 */
+.hum-list {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 20px;
+    z-index: 100;
+}
+
+.hum-list p {
+    margin-bottom: 40px;
+}
+
+.hum-list p:first-child {
+    margin-top: 25%;
+}
+
+.hum-list p a {
+    display: flex;
+    flex-direction: column;
+    color: #000;
+}
+
+.hum-list p a span {
+    font-size: 12px;
+    color: #baaab5;
+}
+
+@media screen and (min-width:992px) {
+
+    /* 桌機一開始header和hum不顯示 */
+    /* 用絕對定位推出去 */
+    header,
+    .hum {
+        position: absolute;
+        transform: translateY(-55px);
+    }
+
+    /* 天使圖 */
+    /* 一開始在外面，頁面載入後才移入 */
+    .angel {
+        position: absolute;
+        bottom: 15%;
+        right: -10%;
+        background: url(./images/daughter.png);
+        background-size: cover;
+        /* 圖片高度 */
+        padding-top: 20%;
+        width: 10%;
+        z-index: 99;
+    }
+
+    .hum {
+        /* 調整位置 */
+        right: 15px;
+    }
+
+    /* 權重調高 */
+    .hum-list {
+        z-index: 100;
+    }
+
+    /* 與上面距離調低 */
+    .hum-list p:first-child {
+        margin-top: 10%;
+    }
+
+
+}
+
+/* 橫幅 */
+.banner {
+    margin: 0 -15px 0;
+    /* 隱藏pic移動的黑色偽元素 */
+    overflow: hidden;
+}
+
+.banner .pic {
+    position: relative;
+}
+
+/* jq調用 黑色布幕往右消失*/
+.banner .pic.change::after {
+    left: 100%;
+    transition: 1s;
+    /* addClass delay直接加在這 */
+    transition-delay: 3.1s;
+}
+
+/* jq調用 黑色布幕樣式*/
+.banner .pic::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+
+.banner .text-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('./images/logo_bg.jpg');
+    z-index: 2;
+}
+
+/* 文字區 */
+.banner .text-pic .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 30px;
+    opacity: 0;
+}
+
+.banner .text-pic img {
+    margin-bottom: 20px;
+}
+
+.banner .text-pic .logo {
+    width: 60%;
+}
+
+.banner .text-pic .logo-title {
+    width: 90%;
+    color: #dead6b;
+}
+
+.banner .text-pic .date {
+    color: #dead6b;
+    letter-spacing: 3px;
+}
+
+@media screen and (min-width:992px) {
+    /* 桌機 水平排列 */
+    .banner {
+        display: flex;
+    }
+
+    /* 寬度縮短，高度自動也變短 */
+    .banner .pic {
+        width: 60%;
+    }
+
+    .banner .text-pic {
+        width: 40%;
+        justify-content: center;
+    }
+
+    .banner .text-pic .logo {
+        width: 65%;
+        margin-bottom: 20px;
+    }
+
+    .banner .text-pic .logo-title {
+        width: 70%;
+        color: #dead6b;
+        margin-bottom: 20px;
+    }
+
+    .banner .text-pic .date {
+        color: #dead6b;
+        text-align: center;
+        letter-spacing: 3px;
+        font-size: 22px;
+    }
+
+}
+
+/* navbar整個背景色 */
+.navbar-wrap {
+    background-color: #e9e9e9;
+}
+
+/* 中間文字整個背景色 */
+.center-text-wrap {
+    background-color: #e9e9e9;
+}
+
+.navbar {
+    padding: 50px 0;
+}
+
+/* 每個p設定寬度 100% / 6 */
+.navbar p {
+    width: 16.6667%;
+    position: relative;
+    transition: .5s;
+}
+
+/* 觸碰時垂直旋轉360度 */
+.navbar p:hover a {
+    transform: rotateX(360deg);
+}
+
+/* 第一個p以外的元素製作斜線 */
+.navbar p:nth-child(n+2)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -28%;
+    background: url(./images/line.png) no-repeat;
+    width: 60px;
+    height: 100%;
+}
+
+.navbar p a {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #000;
+    transition: .7s;
+}
+
+.navbar p a span {
+    color: #887ca8;
+    font-size: 12px;
+}
+
+.center-text {
+    padding: 30px 20px;
+    margin: 0 -15px;
+}
+
+.center-text h3 {
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+}
+
+@media screen and (min-width:992px) {
+    .center-text h3 {
+        font-size: 20px;
+        letter-spacing: 3px;
+        font-weight: 700;
+    }
+}
+
+/* 手機 隱藏album-wrap */
+.album-wrap {
+    display: none;
+    background-color: #e9e9e9;
+}
+
+/* 這裡不用bs，用自訂的 */
+.album {
+    max-width: 1440px;
+    margin: auto;
+}
+
+.album .item-group {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: flex-end; */
+    padding: 0 0 60px;
+}
+
+
+.album .item-group .item {
+    /* 先把opacity調0，用jq調回來 */
+    opacity: 0;
+    width: calc(25% - 20px);
+    transition: .3s;
+}
+
+/* 圖片高度固定 */
+.album .item-group .item .pic {
+    margin-bottom: 20px;
+    height: 300px;
+}
+
+
+.album .item-group .item .pic img {
+    /* 防止變形 */
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.album .item .text {
+    text-align: center;
+    color: #000;
+}
+
+/* 背景色 */
+.privilege-wrap {
+    /* 背景圖較小，且中間亮，周圍暗 */
+    background: url(./images/bg_shadow.png) no-repeat center 0;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* 這裡不用bs，用自訂的 */
+.privilege {
+    max-width: 1440px;
+    text-align: center;
+    padding: 30px 5px;
+    margin: auto;
+}
+
+/* 預設位於畫面外，jq調回來 */
+.privilege .title {
+    position: relative;
+    color: #dead6b;
+    padding-bottom: 50px;
+    transform: translate(100%);
+    letter-spacing: 5px;
+    font-size: 30px;
+}
+
+/* 底下的王冠 */
+.privilege .title::before {
+    content: '';
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 50%;
+    height: 30%;
+    background: url(./images/midashi_pict2.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 10;
+}
+
+/* 背景色為白，左右兩邊的框 */
+.privilege .photo,
+.privilege .real-date,
+.privilege .exchange-coupon {
+    position: relative;
+    padding: 35px 35px 30px;
+    background: #fff url(./images/frame02_2.png) center 0;
+    /* size和內容相同 */
+    /* 用在背景圖比較大時 */
+    background-size: contain;
+    margin-bottom: 20px;
+}
+
+/* 三個預設都在外面，jq調回來 */
+.privilege .photo {
+    transform: translate(-150%);
+}
+
+.privilege .real-date {
+    transform: translate(300%);
+}
+
+.privilege .exchange-coupon {
+    transform: translate(-450%);
+}
+
+/* 頂框 */
+.privilege .photo::before,
+.privilege .real-date::before,
+.privilege .exchange-coupon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4%;
+    background: url(./images/frame02_1.png) no-repeat center top;
+    /* 用在背景圖比較小時 */
+    background-size: cover;
+}
+
+/* 頂框 */
+.privilege .photo::after,
+.privilege .real-date::after,
+.privilege .exchange-coupon::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4%;
+    background: url(./images/frame02_3.png) no-repeat center bottom;
+    /* 用在背景圖比較小時 */
+    background-size: cover;
+}
+
+.privilege .photo h4,
+.privilege .real-date h4,
+.privilege .exchange-coupon h4 {
+    position: relative;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #4a3383;
+    font-weight: 500;
+}
+
+/* 左上角的圖形 */
+.privilege .photo h4::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -15px;
+    width: 55px;
+    height: 55px;
+    background: url(./images/icon01.png);
+    background-size: 100% 100%;
+}
+
+/* 左上角的圖形 */
+.privilege .real-date h4::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -15px;
+    width: 55px;
+    height: 55px;
+    background: url(./images/icon02.png);
+    background-size: 100% 100%;
+}
+
+/* 左上角的圖形 */
+.privilege .exchange-coupon h4::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -15px;
+    width: 55px;
+    height: 55px;
+    background: url(./images/icon03.png);
+    background-size: 100% 100%;
+}
+
+.privilege .photo p,
+.privilege .real-date p,
+.privilege .exchange-coupon p {
+    text-align: left;
+}
+
+.privilege .photo p:nth-child(2),
+.privilege .real-date p:nth-child(2),
+.privilege .exchange-coupon p:nth-child(2) {
+    margin-bottom: 15px;
+}
+
+.privilege .real-date p a {
+    color: #8574ab;
+    transition: .3s;
+}
+
+.privilege .real-date p a:hover {
+    opacity: .7;
+}
+
+@media screen and (min-width: 992px) {
+
+    /* 打開album-wrap */
+    .album-wrap {
+        display: block;
+    }
+
+    /* 水平排列 */
+    .privilege .item-group {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* 每個寬度 -10px 當作間距*/
+    .privilege .item-group div {
+        width: calc(33.3333% - 10px);
+    }
+
+    /* 調整王冠大小位置 */
+    .privilege .title::before {
+        top: 50%;
+        width: 15%;
+        height: 20%;
+    }
+
+    .privilege .title {
+        padding-bottom: 80px;
+    }
+}
+
+/* gallery背景色 */
+.gallery-wrap {
+    padding: 40px 20px;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 60px 120px;
+    /* 隱藏圖片放大時超出的部分 */
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* 邊框 */
+.gallery::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(./images/gallery_bnr_waku.png) no-repeat center 0;
+    /* 與父層完全一樣 */
+    background-size: 100% 100%;
+}
+
+/* 圖片 */
+.gallery::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(./images/gallery_bnr_bg.jpg) no-repeat center;
+    background-size: cover;
+    transition: .5s;
+}
+
+/* 觸碰後放大 */
+.gallery:hover::before {
+    transform: scale(1.2)
+}
+
+.gallery h3 {
+    z-index: 2;
+}
+
+/* 文字樣式 */
+.gallery h3 a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #bb820f;
+    font-size: 28px;
+    letter-spacing: 3px;
+    text-align: center;
+    transition: .5s;
+}
+
+.gallery:hover h3 a {
+    color: #fff;
+}
+
+
+
+@media screen and (min-width: 992px) {
+    .gallery-wrap {
+        padding: 60px 0;
+        background-color: rgba(0, 0, 0, .6);
+    }
+
+    .gallery {
+        padding: 90px 120px;
+        width: 50%;
+        margin: auto;
+    }
+
+}
+
+/* movie背景色 */
+.movie-wrap {
+    background-color: rgba(14, 9, 22, .9);
+    padding: 40px 20px
+}
+
+
+/* 主體 */
+.movie{
+    cursor: pointer;
+}
+
+/* 影片封面圖 */
+.video {
+    position: relative;
+    background: url(./images/sddefault.jpg) no-repeat center center;
+    /* 封面圖寬度，框會跟著一起調整 */
+    background-size: 80%;
+    /* 封面圖與框之間的距離 */
+    /* 如果調太大，框會被推得太高或太寬 會接不上*/
+    padding: 45% 5%;
+}
+
+/* 邊框 */
+.video::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(./images/movie_frame.png) no-repeat 0 0;
+    /* 設定100% 100% 讓框完整顯示 */
+    background-size: 100% 100%;
+    z-index: 1;
+}
+
+/* 播放圓形 */
+.video .play {
+    position: absolute;
+    /* 置中 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: #291f41;
+    border-radius: 50%;
+    z-index: 2;
+    transition: .3s
+}
+
+/* 播放三角形 */
+.video .play .triangle {
+    position: absolute;
+    /* 置中 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 圖片 */
+    background: url(./images/play.png) no-repeat center;
+    background-size: 100% 100%;
+    width: 15px;
+    height: 15px;
+    /* 刷淡 */
+    opacity: 0.5;
+    transition: .3s
+}
+
+/* 觸碰圓形播放鍵改變 */
+.movie:hover .play {
+    background-color: purple;
+}
+
+/* 觸碰播放三角形改變 */
+.movie:hover .play .triangle {
+    opacity: 1;
+}
+
+/* 文字區 */
+.movie .text {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    /* 長條主體 */
+    background: url(./images/plate_02.png);
+    padding: 7px 0;
+    /* 縮短長度 */
+    width: 85%;
+    /* 水平置中 */
+    margin: auto;
+}
+
+/* 左側裝飾 */
+.movie .text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    /* 略為往外推 */
+    left: -5px;
+    background: url(./images/plate_01.png);
+    background-size: 100% 100%;
+    /* 高與父層同樣 */
+    height: 100%;
+    width: 5%;
+}
+
+/* 右側裝飾 */
+.movie .text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    /* 略為往外推 */
+    right: -10px;
+    background: url(./images/plate_03.png);
+    background-size: 100% 100%;
+    /* 高與父層同樣 */
+    height: 100%;
+    width: 5%;
+}
+
+@media screen and (min-width: 992px) {
+    .movie-wrap {
+        padding: 60px 0;
+    }
+
+    .video {
+        position: relative;
+        background: url(./images/sddefault.jpg) no-repeat center center;
+        background-size: 80%;
+        /* 封面圖寬度，框會跟著一起調整 */
+        width: 65%;
+        /* 封面圖與框之間的距離 */
+        /* 如果調太大，框會被推得太高或太寬 會接不上*/
+        padding: 25% 5%;
+        margin: auto;
+        margin-bottom: 30px;
+    }
+
+
+
+    /* 文字區 */
+    .movie .text {
+        /* 調高padding */
+        padding: 10px 0;
+        /* 縮短長度 */
+        width: fit-content;
+        /* 水平置中 */
+    }
+
+
+}
+
+/* 主體 */
+.link-banner {
+    margin: 0 -15px;
+}
+
+.link-banner .item {
+    text-align: center;
+    color: #fff;
+    padding: 40px 30px;
+}
+
+/* 文字一開始刷到透明，等背景跑完後用jq調回來 */
+.link-banner .content {
+    opacity: 0;
+}
+
+.link-banner .item p {
+    margin-bottom: 25px;
+}
+
+.link-banner .item h4 {
+    margin-bottom: 30px;
+}
+
+/* 按鈕 a 改成block，並且不設置背景色 */
+.link-banner .item .detailed a {
+    position: relative;
+    display: block;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 40px;
+    width: fit-content;
+    margin: auto;
+    transition: .5s;
+    /* 這個一定要設置，否則之後hoevr的白色背景色會出不來 */
+    z-index: 2;
+}
+
+/* 用 a 的::after設置背景色，但w0 */
+.link-banner .item .detailed a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #fff;
+    transition: .5s;
+}
+
+/* 觸碰時w100% */
+.link-banner .item .detailed a:hover::after {
+    width: 100%;
+    /* z-index要設在這裡 設-1 */
+    z-index: -1;
+}
+
+/* 觸碰時文字顏色修改 */
+.link-banner .item .detailed a:hover {
+    color: #000;
+}
+
+
+
+.link-banner .four,
+.link-banner .handshake,
+.link-banner .thanks {
+    position: relative;
+}
+
+/* 各banner用::after做滑動背景 w0 */
+.link-banner .four::after,
+.link-banner .handshake::after,
+.link-banner .thanks::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    /* 寬度先設為0 */
+    width: 0;
+    height: 100%;
+    background-color: #c2870e;
+    transition: .7s
+}
+
+/* 讓jq來調用 */
+.link-banner .four.change::after,
+.link-banner .handshake.change::after,
+.link-banner .thanks.change::after {
+    width: 100%;
+    /* hover這裡要設為-1，否則文字內容會被蓋過 */
+    z-index: -1;
+}
+
+.link-banner .handshake::after {
+    background-color: #3a3055;
+}
+
+.link-banner .thanks::after {
+    background-color: #291f41;
+}
+
+
+/*用::before設置初始的背景色 */
+.link-banner .four::before,
+.link-banner .handshake::before,
+.link-banner .thanks::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: -1;
+    transition: .5s
+}
+
+.link-banner .handshake h4,
+.link-banner .thanks h4 {
+    color: #d9af75;
+}
+
+@media screen and (min-width: 992px) {
+    /* 桌機 水平排列 */
+    .link-banner {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 各banner佔一份寬度 */
+    .link-banner .item {
+        text-align: center;
+        color: #fff;
+        padding: 50px 30px;
+        flex: 1;
+    }
+}
+
+/* 底部 */
+footer {
+    padding: 80px 60px 15px;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+/* icon水平排列 */
+footer .sns {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+/* icon */
+footer .sns div {
+    font-size: 30px;
+    margin: 0 15px;
+}
+
+footer .sns div a {
+    color: #fff;
+    transition: .3s;
+}
+
+/* 觸碰時刷淡 */
+footer .sns div a:hover {
+    opacity: .7;
+}
+
+footer .copyright {
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+}
+
+@media screen and (min-width: 992px) {
+    footer {
+        background-color: #000;
+    }
+
+    footer {
+        padding: 80px 60px 25px;
+    }
+}
+
+/* remodal元素 */
+.remodal {
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f3f3f3;
+    z-index: 999;
+}
+
+.yt {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* 手機的youtube大小 */
+.yt iframe {
+    width: 100%;
+    height: 315px;
+}
+
+/* 關閉demodal的按鈕 */
+.remodal .close-btn {
+    border: 1px solid #aaa;
+    font-size: 20px;
+    padding: 0 30px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 992px) {
+    /* 桌機的youtube大小 */
+    .yt {
+        width: fit-content;
+        margin-bottom: 20px;
+    }
+
+    .yt iframe {
+        width: 1120px;
+        height: 630px;
+    }
+
+    
+
+}
