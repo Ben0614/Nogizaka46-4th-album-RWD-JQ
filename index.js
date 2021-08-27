@@ -118,6 +118,7 @@ $(function () {
     // 被捲去的頂部
     $(window).scroll(function () {
         // 螢幕寬度 >= 992
+         // 用js控制css
         if ($(window).width() >= 992) {
             // 桌機
             // 被捲去的頭部 >= banner的高度
@@ -148,6 +149,18 @@ $(function () {
                     'transition': '.5s'
                 })
             }
+        }
+
+        // 用js控制css
+        if ($(window).width() <= 991) {
+            // 手機 將translateY調回0
+                $('header').css({
+                    'transform': 'translateY(0)',
+                })
+            // 手機 將translateY調回0
+                $('.hum').css({
+                    'transform': 'translateY(0)',
+                })
         }
 
         // 被捲去的頭部 + 螢幕可視範圍的高度 >= .slick .item .pic 距離頂端的高度
