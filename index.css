@@ -1052,6 +1052,10 @@ header .logo-title {
         padding: 50px 30px;
         flex: 1;
     }
+
+    .link-banner .content h4{
+        height: 40px;
+    }
 }
 
 /* 底部 */
