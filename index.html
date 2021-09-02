@@ -27,44 +27,44 @@
     </div>
 
     <!-- 語言選擇框 -->
-        <div class="lang-selector">
-            <div class="pic"><img src="./images/langue.png" alt=""></div>
-            <ul>
-                <li>
-                    <!-- div是小圓點 -->
-                    <div></div>
-                    <span>日本語</span>
-                </li>
-                <li>
-                    <div></div>
-                    <span>English</span>
-                </li>
-                <li>
-                    <div></div>
-                    <span>简体中文</span>
-                </li>
-                <li>
-                    <div></div>
-                    <span>繁體中文</span>
-                </li>
-                <li>
-                    <div></div>
-                    <span>ภาษาไทย</span>
-                </li>
-                <li>
-                    <div></div>
-                    <span>한국어</span>
-                </li>
-                <li>
-                    <div></div>
-                    <span>Bahasa Melayu</span>
-                </li>
-                <li>
-                    <div></div>
-                    <span>Bahasa Indonesia</span>
-                </li>
-            </ul>
-        </div>
+    <div class="lang-selector">
+        <div class="pic"><img src="./images/langue.png" alt=""></div>
+        <ul>
+            <li>
+                <!-- div是小圓點 -->
+                <div></div>
+                <span>日本語</span>
+            </li>
+            <li>
+                <div></div>
+                <span>English</span>
+            </li>
+            <li>
+                <div></div>
+                <span>简体中文</span>
+            </li>
+            <li>
+                <div></div>
+                <span>繁體中文</span>
+            </li>
+            <li>
+                <div></div>
+                <span>ภาษาไทย</span>
+            </li>
+            <li>
+                <div></div>
+                <span>한국어</span>
+            </li>
+            <li>
+                <div></div>
+                <span>Bahasa Melayu</span>
+            </li>
+            <li>
+                <div></div>
+                <span>Bahasa Indonesia</span>
+            </li>
+        </ul>
+    </div>
 
     <!-- 頭部 -->
     <!-- 桌機先設為絕對定位(不佔位置，然後用translateY推出去 -->
@@ -77,7 +77,6 @@
         </div>
         <div></div>
     </header>
-
 
     <!-- 漢堡選單 -->
     <!-- 用三個div做線 -->
@@ -139,32 +138,34 @@
         </p>
     </div>
 
-
-    <!-- 橫幅 -->
-    <!-- 桌機用flex水平對齊 -->
-    <div class="container-fluid">
-        <!-- 大圖 -->
-        <!-- 黑色遮光罩用::after製作，用jq調用translate移走 -->
-        <div class="banner">
-            <div class="pic">
-                <img src="./images/mainimg.jpg" alt="">
-            </div>
-            <!-- 大logo -->
-            <!-- 用fadeIn淡入 -->
-            <div class="text-pic">
-                <div class="content">
-                    <div class="logo"><img src="./images/logo.png" alt=""></div>
-                    <div class="logo-title"><img src="./images/logo_title.png" alt=""></div>
-                    <p class="date">2019年4月17日(水)リリース</p>
+    <!-- 將天使和banner用一個div包起來，然後div用relative，讓天使定位 -->
+    <!-- 避免可視窗區域高度改變，天使也移動 -->
+    <div class="banner-angel">
+        <!-- 橫幅 -->
+        <!-- 桌機用flex水平對齊 -->
+        <div class="container-fluid">
+            <!-- 大圖 -->
+            <!-- 黑色遮光罩用::after製作，用jq調用translate移走 -->
+            <div class="banner">
+                <div class="pic">
+                    <img src="./images/mainimg.jpg" alt="">
+                </div>
+                <!-- 大logo -->
+                <!-- 用fadeIn淡入 -->
+                <div class="text-pic">
+                    <div class="content">
+                        <div class="logo"><img src="./images/logo.png" alt=""></div>
+                        <div class="logo-title"><img src="./images/logo_title.png" alt=""></div>
+                        <p class="date">2019年4月17日(水)リリース</p>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- 天使圖 -->
+        <!-- 絕對定位 -->
+        <!-- jq調用translate移入 -->
+        <div class="angel d-none d-lg-block"></div>
     </div>
-
-    <!-- 天使圖 -->
-    <!-- 絕對定位 -->
-    <!-- jq調用translate移入 -->
-    <div class="angel d-none d-lg-block"></div>
 
     <!-- navbar -->
     <!-- 斜線用::after製作 -->
