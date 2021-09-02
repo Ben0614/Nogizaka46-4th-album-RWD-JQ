@@ -1,6 +1,8 @@
-let menuOpened = false;
-
 $(function () {
+    // 盡量不要用jquery直接修改css，用class方式添加或移除
+
+    let menuOpened = false;
+
     // 頁面載入中
     // 往左消失，delay 2s
     // 移動時刷淡
@@ -115,50 +117,24 @@ $(function () {
         }
     })
 
+    // 桌機時， header和hum添加isHide
+    if ($(window).width() >= 992) {
+        $('header,.hum').addClass('isHide')
+    }
+
     // 被捲去的頂部
     $(window).scroll(function () {
         // 螢幕寬度 >= 992
-        // 用js控制css
         if ($(window).width() >= 992) {
             // 桌機
             // 被捲去的頭部 >= banner的高度
             if ($(document).scrollTop() >= $('.banner').height()) {
-                // 讓header變成fixed定位，並把位置調回來
-                $('header').css({
-                    'position': 'fixed',
-                    'transform': 'translateY(0)',
-                    'z-index': '99',
-                    'transition': '.5s'
-                })
-
-                // 讓hum變成fixed定位，並把位置調回來
-                $('.hum').css({
-                    'position': 'fixed',
-                    'transform': 'translateY(0)',
-                    'transition': '.5s'
-                })
+                // 讓header和hum顯示
+                $('header,.hum').addClass('isShow').removeClass('isHide')
             } else {
-                $('header').css({
-                    'transform': 'translateY(-55px)',
-                    'transition': '.5s'
-                })
-                $('.hum').css({
-                    'transform': 'translateY(-55px)',
-                    'transition': '.5s'
-                })
+                // 讓header和hum隱藏
+                $('header,.hum').addClass('isHide').removeClass('isShow')
             }
-        }
-
-        // 用js控制css
-        if ($(window).width() <= 991) {
-            // 手機 將translateY調回0
-            $('header').css({
-                'transform': 'translateY(0)',
-            })
-            // 手機 將translateY調回0
-            $('.hum').css({
-                'transform': 'translateY(0)',
-            })
         }
 
         // 被捲去的頭部 + 螢幕可視範圍的高度 >= .slick .item .pic 距離頂端的高度

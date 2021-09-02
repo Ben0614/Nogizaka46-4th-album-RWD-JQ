@@ -224,13 +224,16 @@ header .logo-title {
 }
 
 @media screen and (min-width:992px) {
-
-    /* 桌機一開始header和hum不顯示 */
-    /* 用絕對定位推出去 */
-    header,
-    .hum {
-        position: absolute;
+    /* 控制header和hum，在桌機的上半部時先隱藏 */
+    .isHide {
+        transition: .3s;
         transform: translateY(-55px);
+    }
+
+    /* 控制header和hum，過了桌機的banner時顯示 */
+    .isShow {
+        transition: .3s;
+        transform: translateY(0);
     }
 
     .hum {
