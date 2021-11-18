@@ -48,14 +48,14 @@ $(function () {
     $('.slick').slick({
         centerMode: true,
         centerPadding: '60px',
-        slidesToShow: 3,
+        slidesToShow: 2,
         responsive: [{
                 breakpoint: 768,
                 settings: {
                     arrows: true,
                     centerMode: true,
                     centerPadding: '50px',
-                    slidesToShow: 3
+                    slidesToShow: 2
                 }
             },
             {
