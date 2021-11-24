@@ -119,7 +119,7 @@ $(function () {
 
     // 桌機時， header和hum添加isHide
     if ($(window).width() >= 992) {
-        $('header,.hum').addClass('isHide')
+        $('header-wrap,.hum').addClass('isHide')
     }
 
     // 被捲去的頂部

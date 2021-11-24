@@ -125,6 +125,10 @@ img {
     background: rgba(0, 0, 0, .5);
 }
 
+.header-wrap{
+    height: 55px;
+}
+
 /* 頭部 */
 header {
     display: flex;
@@ -234,6 +238,10 @@ header .logo-title {
     .isShow {
         transition: .3s;
         transform: translateY(0);
+    }
+
+    .header-wrap {
+        height: 0;
     }
 
     .hum {
