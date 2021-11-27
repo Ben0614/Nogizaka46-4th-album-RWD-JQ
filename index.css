@@ -22,6 +22,7 @@ body {
     height: 100%;
     background: #645490 url(./images/bg_shadow.png) center center;
     z-index: 9999;
+    transition: 1s;
 }
 
 /* 旋轉小圈 */
@@ -85,7 +86,7 @@ img {
 
 /* 用fixed，位置設定除了bottom略高外，其餘與父層一樣 */
 .lang-selector ul {
-    display: none;
+    height: 0;
     background-color: #812990;
     position: fixed;
     right: 15px;
@@ -93,6 +94,7 @@ img {
     width: 140px;
     height: content;
     list-style: none;
+    overflow: hidden;
 }
 
 .lang-selector ul li {
@@ -195,7 +197,6 @@ header .logo-title {
 
 /* 漢堡選單條 */
 .hum-list {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -205,7 +206,9 @@ header .logo-title {
     text-align: center;
     letter-spacing: 2px;
     font-size: 20px;
-    z-index: 100;
+    z-index: -1;
+    opacity: 0;
+    transition: .5s;
 }
 
 .hum-list p {
@@ -241,7 +244,7 @@ header .logo-title {
     }
 
     .header-wrap {
-        height: 0;
+        height:0;
     }
 
     .hum {
@@ -251,7 +254,7 @@ header .logo-title {
 
     /* 權重調高 */
     .hum-list {
-        z-index: 100;
+        z-index: -1;
     }
 
     /* 與上面距離調低 */
@@ -708,6 +711,7 @@ header .logo-title {
     /* 隱藏圖片放大時超出的部分 */
     overflow: hidden;
     cursor: pointer;
+    opacity:0;
 }
 
 /* 邊框 */
@@ -787,6 +791,7 @@ header .logo-title {
 /* 主體 */
 .movie {
     cursor: pointer;
+    opacity: 0;
 }
 
 /* 影片封面圖 */
